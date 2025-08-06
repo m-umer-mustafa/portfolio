@@ -1,0 +1,357 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Portfolio Design System - Dark theme with emerald accents */
+
+@layer base {
+  :root {
+    --background: 217 33% 17%;
+    --foreground: 220 38% 97%;
+
+    --card: 217 33% 20%;
+    --card-foreground: 220 38% 97%;
+
+    --popover: 217 33% 20%;
+    --popover-foreground: 220 38% 97%;
+
+    --primary: 158 64% 52%;
+    --primary-foreground: 217 33% 17%;
+
+    --secondary: 217 33% 22%;
+    --secondary-foreground: 220 38% 97%;
+
+    --muted: 217 33% 25%;
+    --muted-foreground: 220 15% 65%;
+
+    --accent: 158 64% 52%;
+    --accent-foreground: 217 33% 17%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 25%;
+    --input: 217 33% 25%;
+    --ring: 158 64% 52%;
+
+    --radius: 0.5rem;
+
+    /* Portfolio specific tokens */
+    --portfolio-bg: 217 33% 17%;
+    --portfolio-bg-light: 217 33% 20%;
+    --portfolio-text: 220 38% 97%;
+    --portfolio-text-muted: 220 15% 65%;
+    --portfolio-accent: 158 64% 52%;
+    --portfolio-accent-dim: 158 64% 42%;
+    --portfolio-border: 217 33% 25%;
+
+    /* Shadows and effects */
+    --shadow-glow: 0 0 40px hsl(158 64% 52% / 0.15);
+    --shadow-card: 0 10px 30px -10px hsl(217 33% 10% / 0.5);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Typography */
+    --font-mono: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .light {
+    --background: 220 14% 98%;
+    --foreground: 217 33% 17%;
+    --card: 0 0% 100%;
+    --card-foreground: 217 33% 17%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 217 33% 17%;
+    --primary: 199 89% 48%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 13% 95%;
+    --secondary-foreground: 217 33% 17%;
+    --muted: 220 13% 95%;
+    --muted-foreground: 215 14% 47%;
+    --accent: 199 89% 48%;
+    --accent-foreground: 0 0% 100%;
+    --border: 220 13% 82%;
+    --input: 220 13% 82%;
+    --ring: 199 89% 48%;
+
+    /* Portfolio specific tokens for light mode */
+    --portfolio-bg: 220 14% 98%;
+    --portfolio-bg-light: 0 0% 100%;
+    --portfolio-text: 217 33% 17%;
+    --portfolio-text-muted: 215 14% 47%;
+    --portfolio-accent: 199 89% 48%;
+    --portfolio-accent-dim: 199 89% 39%;
+    --portfolio-border: 220 13% 82%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-portfolio-bg text-portfolio-text font-sans antialiased relative overflow-x-hidden;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: linear-gradient(-45deg,
+      hsl(var(--portfolio-bg)),
+      hsl(var(--portfolio-bg-light)),
+      hsl(var(--portfolio-accent-dim)),
+      hsl(var(--portfolio-bg))
+    );
+    background-size: 400% 400%;
+    animation: gradient-animation 15s ease infinite;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Theme transition animation */
+  html {
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  html.changing-theme {
+    transform: scale(1.02);
+    opacity: 0.9;
+  }
+
+  html.changing-theme body {
+    filter: blur(2px);
+  }
+
+  @keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Cursor lighting effect */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+                hsl(var(--portfolio-accent) / 0.08), 
+                hsl(var(--portfolio-accent) / 0.04) 40%, 
+                transparent 80%);
+  }
+
+  /* Theme transition overlay */
+  .theme-changing::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+    background: radial-gradient(
+      circle at var(--theme-change-x) var(--theme-change-y),
+      transparent 0%,
+      hsl(var(--portfolio-bg)) 100%
+    );
+    opacity: 0;
+    clip-path: circle(0% at var(--theme-change-x) var(--theme-change-y));
+    animation: theme-change 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  @keyframes theme-change {
+    0% {
+      opacity: 1;
+      clip-path: circle(0% at var(--theme-change-x) var(--theme-change-y));
+    }
+    100% {
+      opacity: 1;
+      clip-path: circle(170% at var(--theme-change-x) var(--theme-change-y));
+    }
+  }
+
+  /* Smooth color transitions */
+  :root {
+    --theme-transition: background-color 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+                       color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                       border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  body * {
+    transition: var(--theme-transition);
+  }
+
+  /* Theme transition animation */
+  html {
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  html.changing-theme {
+    transform: scale(1.01);
+    opacity: 0.95;
+  }
+}
+
+@keyframes float-clouds {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(10px, -10px); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+
+@layer components {
+  .portfolio-heading {
+    @apply text-portfolio-text font-semibold tracking-tight;
+  }
+
+  .portfolio-text {
+    @apply text-portfolio-text-muted leading-relaxed;
+  }
+
+  .portfolio-accent {
+    @apply text-portfolio-accent;
+  }
+
+  .portfolio-card {
+    @apply bg-portfolio-bg-light border border-portfolio-border rounded-lg p-6 transition-all duration-300;
+  }
+
+  .portfolio-card:hover {
+    @apply transform -translate-y-1 shadow-lg;
+    box-shadow: var(--shadow-card);
+  }
+
+  .nav-link {
+    @apply text-portfolio-text-muted hover:text-portfolio-accent transition-colors duration-300 font-medium;
+  }
+
+  .nav-link.active {
+    @apply text-portfolio-accent;
+  }
+
+  .glow-effect {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .header-blur {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: hsla(var(--portfolio-bg) / 0.8);
+    border-bottom: 1px solid hsla(var(--portfolio-border) / 0.5);
+    transition: all 0.3s ease;
+  }
+
+  .project-card-active {
+    @apply transform scale-105 shadow-2xl;
+    box-shadow: 0 25px 50px -12px hsla(var(--portfolio-accent) / 0.25);
+  }
+
+  .project-card-inactive {
+    @apply transform scale-95 opacity-60;
+  }
+
+  .light .clouds {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 90%;
+    pointer-events: none;
+    background: 
+      radial-gradient(circle at 20% 20%, hsla(0, 0%, 100%, 0.3) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, hsla(0, 0%, 100%, 0.3) 0%, transparent 60%),
+      radial-gradient(circle at 30% 60%, hsla(0, 0%, 100%, 0.3) 0%, transparent 40%);
+    animation: float-clouds 20s ease-in-out infinite;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    z-index: 0;
+    
+  }
+
+  .dark .stars {
+    position: fixed;
+    top: 0;
+    left: 50%; /* Start from middle */
+    width: 50%; /* Limit width to right half */
+    height: 100%;
+    pointer-events: none;
+    background-image: 
+      radial-gradient(1px 1px at 60% 10%, hsl(var(--portfolio-accent) / 0.3) 50%, transparent 50%),
+      radial-gradient(1px 1px at 70% 30%, hsl(var(--portfolio-accent) / 0.3) 50%, transparent 50%),
+      radial-gradient(2px 2px at 80% 70%, hsl(var(--portfolio-accent) / 0.3) 50%, transparent 50%),
+      radial-gradient(2px 2px at 65% 20%, hsl(var(--portfolio-accent) / 0.3) 50%, transparent 50%),
+      radial-gradient(1px 1px at 90% 40%, hsl(var(--portfolio-accent) / 0.3) 50%, transparent 50%),
+      radial-gradient(1px 1px at 75% 90%, hsl(var(--portfolio-accent) / 0.3) 50%, transparent 50%);
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    z-index: 0;
+  }
+
+  .light .clouds.visible {
+    opacity: 0.5;
+  }
+
+  .dark .stars.visible {
+    opacity: 1;
+    animation: twinkle 4s ease-in-out infinite alternate;
+  }
+}
+
+/* Animation keyframes */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px hsla(var(--portfolio-accent) / 0.3); }
+  50% { box-shadow: 0 0 30px hsla(var(--portfolio-accent) / 0.5); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+.animate-twinkle {
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+/* Theme switch animation delays */
+.animation-delay-300 {
+  animation-delay: 300ms;
+}
+
+.animation-delay-500 {
+  animation-delay: 500ms;
+}
+
+.animation-delay-700 {
+  animation-delay: 700ms;
+}
