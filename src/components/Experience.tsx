@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Badge } from '@/components/ui/badge';
 
@@ -44,13 +45,13 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="min-h-screen py-20 ml-16 mr-8">
-      <div className="max-w-4xl ml-80">
+    <section id="experience" className="min-h-screen py-20 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl w-full mx-auto lg:ml-80">
         <div className="space-y-16">
           {/* Section Header */}
           <div className="space-y-4">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold portfolio-heading">
-              <span className="text-portfolio-accent font-mono text-lg md:text-xl mr-4">01.</span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold portfolio-heading">
+              <span className="text-portfolio-accent font-mono text-base sm:text-lg md:text-xl mr-2 sm:mr-4">01.</span>
               Education & Experience
             </h2>
             <div className="w-32 h-px bg-portfolio-border"></div>
@@ -63,16 +64,16 @@ const Experience = () => {
               {education.map((edu, index) => (
                 <div key={index} className="portfolio-card group">
                   <div className="space-y-4">
-                    <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
                       <div>
-                        <h4 className="text-xl font-bold portfolio-heading group-hover:text-portfolio-accent transition-colors duration-300">
+                        <h4 className="text-lg sm:text-xl font-bold portfolio-heading group-hover:text-portfolio-accent transition-colors duration-300">
                           {edu.title}
                         </h4>
-                        <p className="text-portfolio-accent font-mono text-sm">
+                        <p className="text-portfolio-accent font-mono text-xs sm:text-sm">
                           {edu.institution}
                         </p>
                       </div>
-                      <div className="text-portfolio-text-muted font-mono text-sm mt-2 md:mt-0">
+                      <div className="text-portfolio-text-muted font-mono text-xs sm:text-sm mt-2 sm:mt-0">
                         {edu.period}
                       </div>
                     </div>
@@ -102,7 +103,7 @@ const Experience = () => {
           {/* Technical Skills */}
           <div className="space-y-8">
             <h3 className="text-2xl font-bold portfolio-heading">Technical Skills</h3>
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
               {Object.entries(technicalSkills).map(([category, skills]) => (
                 <div key={category} className="space-y-4">
                   <h4 className="text-lg font-semibold text-portfolio-accent font-mono">

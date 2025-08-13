@@ -69,13 +69,13 @@ const Projects = () => {
   }, []);
 
   return (
-    <section id="projects" className="min-h-screen py-20 ml-16 mr-8">
-      <div className="max-w-4xl ml-80">
+    <section id="projects" className="min-h-screen py-20 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl w-full mx-auto lg:ml-80">
         <div className="space-y-16">
           {/* Section Header */}
           <div className="space-y-4">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold portfolio-heading">
-              <span className="text-portfolio-accent font-mono text-lg md:text-xl mr-4">02.</span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold portfolio-heading">
+              <span className="text-portfolio-accent font-mono text-base sm:text-lg md:text-xl mr-2 sm:mr-4">02.</span>
               Some Things I've Built
             </h2>
             <div className="w-32 h-px bg-portfolio-border"></div>
@@ -99,12 +99,12 @@ const Projects = () => {
                       <p className="text-portfolio-accent font-mono text-sm mb-2">
                         Featured Project
                       </p>
-                      <h3 className="text-2xl md:text-3xl font-bold portfolio-heading mb-4 group-hover:text-portfolio-accent transition-colors duration-300">
+                      <h3 className="text-xl sm:text-2xl md:text-3xl font-bold portfolio-heading mb-4 group-hover:text-portfolio-accent transition-colors duration-300">
                         {project.title}
                       </h3>
                     </div>
 
-                    <p className="portfolio-text text-lg leading-relaxed">
+                    <p className="portfolio-text text-base sm:text-lg leading-relaxed">
                       {project.description}
                     </p>
 
@@ -157,7 +157,7 @@ const Projects = () => {
               href="https://github.com/m-umer-mustafa"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center space-x-2 text-portfolio-accent hover:text-portfolio-accent-dim font-mono border border-portfolio-accent hover:border-portfolio-accent-dim px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105"
+              className="inline-flex items-center space-x-2 text-portfolio-accent hover:text-portfolio-accent-dim font-mono border border-portfolio-accent hover:border-portfolio-accent-dim px-6 sm:px-8 py-3 sm:py-4 rounded-lg transition-all duration-300 hover:scale-105 text-sm sm:text-base"
             >
               <span>View More Projects</span>
               <ExternalLink className="w-4 h-4" />

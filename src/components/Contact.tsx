@@ -4,15 +4,15 @@ import { Mail, Phone, MapPin, Github, Linkedin, Instagram, MessageCircle } from 
 
 const Contact = () => {
   return (
-    <section id="contact" className="min-h-screen py-20 ml-16 mr-8">
-      <div className="max-w-4xl ml-80">
+    <section id="contact" className="min-h-screen py-20 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto lg:ml-80">
         <div className="space-y-16">
           {/* Section Header */}
           <div className="text-center space-y-4">
             <p className="text-portfolio-accent font-mono text-lg">
               <span className="mr-4">04.</span>What's Next?
             </p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold portfolio-heading">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold portfolio-heading">
               Get In Touch
             </h2>
             <div className="w-32 h-px bg-portfolio-border mx-auto"></div>
@@ -21,12 +21,12 @@ const Contact = () => {
           {/* Contact Content */}
           <div className="text-center space-y-8">
             <div className="max-w-2xl mx-auto space-y-6">
-              <p className="portfolio-text text-lg">
+              <p className="portfolio-text text-base sm:text-lg">
                 I'm currently looking for new opportunities in software development, 
                 machine learning, and AI. Whether you have a question, want to collaborate 
                 on a project, or just want to say hi, I'll try my best to get back to you!
               </p>
-              <p className="portfolio-text">
+              <p className="portfolio-text text-sm sm:text-base">
                 I'm particularly interested in roles involving CUDA programming, 
                 machine learning research, and full-stack development.
               </p>
@@ -36,7 +36,7 @@ const Contact = () => {
             <div className="pt-8">
               <Button 
                 size="lg"
-                className="bg-transparent border-2 border-portfolio-accent text-portfolio-accent hover:bg-portfolio-accent hover:text-portfolio-bg font-mono px-8 py-4 text-lg glow-effect"
+                className="bg-transparent border-2 border-portfolio-accent text-portfolio-accent hover:bg-portfolio-accent hover:text-portfolio-bg font-mono px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg glow-effect"
                 onClick={() => window.open('mailto:muhammadomermustafa@gmail.com', '_blank')}
               >
                 Say Hello
@@ -45,7 +45,7 @@ const Contact = () => {
           </div>
 
           {/* Contact Information */}
-          <div className="grid md:grid-cols-3 gap-8 pt-16">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 pt-16">
             <div className="text-center space-y-4">
               <div className="w-16 h-16 bg-portfolio-bg-light border border-portfolio-border rounded-full flex items-center justify-center mx-auto group-hover:border-portfolio-accent transition-colors duration-300">
                 <Mail className="w-6 h-6 text-portfolio-accent" />
@@ -91,7 +91,7 @@ const Contact = () => {
 
           {/* Social Links */}
           <div className="pt-16">
-            <div className="flex justify-center space-x-8">
+            <div className="flex justify-center space-x-4 sm:space-x-8">
               {[
                 { 
                   icon: Github, 
