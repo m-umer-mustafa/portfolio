@@ -100,7 +100,7 @@ const Contact = () => {
                 },
                 { 
                   icon: Linkedin, 
-                  href: "https://www.linkedin.com/in/muhammad-omer-mustafa-0335020268/",
+                  href: "www.linkedin.com/in/muhammad-omer-mustafa-935150265",
                   label: "LinkedIn"
                 },
                 { 
